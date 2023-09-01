@@ -4,6 +4,8 @@
 <head>
     <title>QrodexFinance Status</title>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/segoe-fonts@1.0.1/segoe-fonts.min.css">
+
     <style>
        H1, H2, H3{
             display: inline-block;
@@ -12,32 +14,33 @@
        BODY {
             height: 100VH;
             width: 100VW;
-            padding: 25px;
             overflow: hidden;
-            backdrop-filter: blur(20px);
        }
 
        html {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.10), rgba(0, 0, 0, 1)), url('https://source.unsplash.com/1600x900/?landscape');
+            background-image: url('https://source.unsplash.com/1600x900/?landscape');
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
+            background-color: black;
        }
 
        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: system-ui;
+            font-family: "Segoe UI Bold";
             text-shadow: 2px 2px 10px #000000;
             color: white;
+            transition: background 0.5s ease;
        }
 
         .carousel-container {
             width: 100%;
-            height: calc(100vh - 179px);
+            height: calc(100vh - 175px);
             overflow: hidden;
             position: relative;
+            backdrop-filter: blur(10px);
         }
 
         .carousel-item {
@@ -50,6 +53,27 @@
             display: grid;
             place-content: center;
             text-align: center;
+        }
+
+        #bottompart {
+            position: absolute;
+            bottom: 0;
+            width: 100vw;
+            padding: 25px;
+            background-color: #1d1d1d50;
+            backdrop-filter: blur(20px);
+        }
+
+        #time, #date {
+            float: right;
+        }
+
+        #timeanddate {
+            position: absolute;
+            z-index: 1;
+            bottom: 0;
+            right: 0;
+            padding: 25px;
         }
     </style>
 </head>
@@ -74,7 +98,7 @@
         </div>
     </div>
 
-    <div>
+    <div id="bottompart">
         <h4 ID="transactions">LOADING</h4>
         <h4 ID="miners">LOADING</h4>
 
@@ -84,6 +108,11 @@
         <h1 id="balance">LOADING</h1>
     </div>
 
+    <div id="timeanddate">
+        <h4 id="wttr"></h4>
+        <h4 id="date"></h4><br>
+        <h1 id="time"></h1>
+    </div>
     
     <script defer>
     	async function fetchValue() {
@@ -106,7 +135,7 @@
             //format transactions
             val.result.transactions.forEach(function (item) {
                 let formatted = "- " + item.sender + " > " + item.recipient + " (" + item.amount + " DUCOs) <BR>"
-                alltransactions = alltransactions + formatted
+                alltransactions = formatted + alltransactions
             })
 
             //format miners
@@ -181,9 +210,45 @@
             }, 250)
         }
 
+        function time() {
+            var d = new Date();
+            var s = d.getSeconds();
+            var m = d.getMinutes();
+            var h = d.getHours();
+
+            const currentDate = new Date();
+            const dayOfWeek = currentDate.toLocaleString('en-US', { weekday: 'long' });
+            const dayOfMonth = currentDate.getDate();
+            const month = currentDate.toLocaleString('en-US', { month: 'long' });
+            const year = currentDate.getFullYear();
+            const formattedDate = `${dayOfWeek}, ${dayOfMonth} ${month} ${year}`;
+
+            document.getElementById('time').textContent = (" ") + ("0" + h).substr(-2) + ":" + ("0" + m).substr(-2);
+            document.getElementById('date').textContent = formattedDate;
+        };
+
+        async function refreshBackground() {
+            let fetchimage = await fetch('https://source.unsplash.com/1600x900/?landscape')
+            let fetchedimage = await fetchimage.blob()
+
+            document.documentElement.style.backgroundImage = `none`
+            document.documentElement.style.backgroundImage = `url('${URL.createObjectURL(fetchedimage)}')`
+        }
+
+        async function fetchWeather() {
+            let fetchweather = await fetch('https://wttr.in/?format=3')
+            let fetchedweather = await fetchweather.text()
+
+            document.getElementById('wttr').textContent = fetchedweather;
+        }
+        fetchWeather()
+
         //loops
+        setInterval(time)
         setInterval(showNextItem, 6000);
         setInterval(fetchValue, 1000);
+        setInterval(refreshBackground, 60000);
+        setInterval(fetchWeather, 1000)
     </script>
 </body>
 
