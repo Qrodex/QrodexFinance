@@ -81,19 +81,19 @@
 <body>
     <div class="carousel-container">
         <div class="carousel-item">
-            <h2>Exchange Price (IRL):</h2><br>
+            <h2>Exchange price (IRL):</h2><br>
             <h4 ID="idrexchange">-</h4>
         </div>
         <div class="carousel-item" style="transform: translateX(100%);">
-            <h2>Exchange Price:</h2><br>
+            <h2>Exchange price:</h2><br>
             <h4 ID="allprices">-</h4>
         </div>
         <div class="carousel-item" style="transform: translateX(100%);">
-            <h2>Transaction History:</h2><br>
+            <h2>Transaction history:</h2><br>
             <h4 ID="transactionshistory">LOADING</h4>
         </div>
         <div class="carousel-item" style="transform: translateX(100%);">
-            <h2>Running Miners:</h2><br>
+            <h2>Running miners:</h2><br>
             <h4 ID="minerslist">-</h4>
         </div>
     </div>
@@ -104,7 +104,7 @@
 
         <br>
 
-        <h4>QrodexFinance Net Worth:</h4>
+        <h4>QrodexFinance net worth:</h4>
         <h1 id="balance">LOADING</h1>
     </div>
 
@@ -140,7 +140,7 @@
 
             //format miners
             if (val.result.miners.length == 0) {
-                allminers = "No Miners Running!"
+                allminers = "No miners running!"
             }
             val.result.miners.forEach(function (item) {
                 let formatted = "- " + item.identifier + " - " + item.software + "<BR>"
