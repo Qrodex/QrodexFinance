@@ -37,7 +37,7 @@
 
         .carousel-container {
             width: 100%;
-            height: calc(100vh - 150px);
+            height: calc(100vh - 130px);
             overflow: hidden;
             position: relative;
             backdrop-filter: blur(10px);
@@ -102,8 +102,6 @@
         <h4 ID="transactions">LOADING</h4>
         <h4 ID="miners">LOADING</h4>
 
-        <br>
-
         <h1 id="balance">LOADING</h1>
     </div>
 
@@ -111,7 +109,7 @@
         <h4 id="wttr"></h4>
         <h4 id="date"></h4>
 
-        <br><br>
+        <br>
 
         <h1 id="time"></h1>
     </div>
@@ -144,15 +142,16 @@
             if (val.result.miners.length == 0) {
                 allminers = "No miners running!"
             }
-            val.result.miners.forEach(function (item) {
+            val.result.miners.forEach(function (item, index) {
                 let formatted = "- " + item.identifier + " - " + item.software + "<BR>"
                 allminers = allminers + formatted
             })
 
             //format crypto exchange
             for (const key in exchangeinfo.result.prices) {
+                let currkey = key.charAt(0).toUpperCase() + key.slice(1)
                 const value = exchangeinfo.result.prices[key];
-                allprices = allprices + `- ${key}: ${value} <br>`;
+                allprices = allprices + `- ${currkey}: ${value} <br>`;
             }
 
             //apply transactions, miners and prices to their places
@@ -183,6 +182,8 @@
                 - ${(convertedtoIDR / 5000).toLocaleString()} Cilok
                 <br>
                 - ${(convertedtoIDR / 6000).toLocaleString()} Mie Oven
+                <br><br>
+                <a href="https://www.exchangerate-api.com">Rates By Exchange Rate API</a>
             `
 
             document.getElementById('idrexchange').innerHTML = formattedpricetext;
