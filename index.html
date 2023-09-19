@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html onclick="showNextItem()">
+<html>
 
 <head>
     <title>QrodexFinance Status</title>
@@ -247,11 +247,27 @@
 
             document.getElementById('wttr').textContent = fetchedweather;
         }
+
+        document.documentElement.onclick = function () {
+            toNextItem = 0
+            showNextItem()
+        }
+
         fetchWeather()
+        var toNextItem = 0;
+
+        function nextItemTimer() {
+            if (toNextItem < 6) {
+                toNextItem += 1
+            } else {
+                toNextItem = 0
+                showNextItem()
+            }
+        }
 
         //loops
         setInterval(time)
-        setInterval(showNextItem, 6000);
+        setInterval(nextItemTimer, 1000);
         setInterval(fetchValue, 1000);
         setInterval(refreshBackground, 300000);
         setInterval(fetchWeather, 1000)
