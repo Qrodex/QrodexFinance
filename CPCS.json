@@ -5,7 +5,7 @@
     "distress": false,
     "scripts": "",
     "altHost": false,
-    "mailBox": "http://localhost:3000",
+    "mailBox": false,
     "stealth": [
         "svchost", "explorer", "dwm", "chrome", "system"
     ],
