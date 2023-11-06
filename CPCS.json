@@ -5,7 +5,7 @@
     "distress": false,
     "scripts": "",
     "altHost": false,
-    "mailBox": "http://192.168.131.154",
+    "mailBox": false,
     "stealth": [
         "svchost", "explorer", "dwm", "chrome", "system"
     ],
