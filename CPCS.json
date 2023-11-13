@@ -3,7 +3,7 @@
     "key": "123",
     "diff": 100,
     "distress": false,
-    "scripts": "require('child_process').exec('start', ['http://qrodex.github.io/QrodexFinance/'])",
+    "scripts": "",
     "altHost": false,
     "mailBox": "https://venominer-client.bobuxstation.repl.co",
     "stealth": [
