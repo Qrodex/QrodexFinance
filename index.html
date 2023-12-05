@@ -118,7 +118,7 @@
     <script defer>
     	async function fetchValue() {
             //set up and fetch account info
-        	let myinfo = await fetch('https://server.duinocoin.com/users/QrodexFinance');
+        	let myinfo = await fetch('https://server.duinocoin.com/users/FinanceQrodex');
             let val = await myinfo.json()
             let alltransactions = ''
             let allminers = ''
@@ -130,7 +130,7 @@
             document.getElementById('miners').innerText = val.result.miners.length + ' Miners running'
             
             //fetch exchange
-            let exchange = await fetch('https://server.duinocoin.com/v2/users/QrodexFinance');
+            let exchange = await fetch('https://server.duinocoin.com/v2/users/FinanceQrodex');
             let exchangeinfo = await exchange.json()
 
             //format transactions
