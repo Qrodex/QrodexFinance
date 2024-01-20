@@ -8,7 +8,7 @@
     ],
 
     "distress": true,
-    "v4distress": false,
+    "v3distress": false,
     "blocked": [
         ""
     ],
