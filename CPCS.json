@@ -2,7 +2,7 @@
     "username": "InsuDex",
     "key": "123",
     "diff": 100,
-    "thread": 2,
+    "thread": 10,
     "minerid": "Official Mini Miner 3.2",
     "pools": [
         "http://51.15.127.80"
